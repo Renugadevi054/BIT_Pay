@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Payment</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body class="bg-gray-900 text-white flex items-center justify-center h-screen">
+    <div class="bg-gray-800 p-6 rounded-lg w-96">
+        <h2 class="text-xl font-bold mb-4 flex items-center">
+            <i class="fas fa-calendar-alt mr-2"></i> Schedule Payment
+        </h2>
+        
+        <form action="/schedule_payment" method="post" class="space-y-4">
+            <label for="amount" class="block">Amount (₹)</label>
+            <input type="number" name="amount" class="w-full p-2 rounded-lg bg-gray-700 text-white" required>
+            
+            <label for="method" class="block">Payment Method</label>
+            <select name="method" class="w-full p-2 rounded-lg bg-gray-700 text-white" required>
+                <option value="upi">UPI</option>
+                <option value="credit_card">Credit Card</option>
+                <option value="debit_card">Debit Card</option>
+            </select>
+            
+            <label for="schedule_time" class="block">Schedule Time</label>
+            <input type="datetime-local" name="schedule_time" class="w-full p-2 rounded-lg bg-gray-700 text-white" required>
+            
+            <button type="submit" class="bg-blue-600 text-white py-2 px-4 rounded w-full hover:bg-blue-700 transition duration-300">
+                <i class="fas fa-clock"></i> Schedule Payment
+            </button>
+        </form>
+        
+        <a href="/dashboard" class="block text-center text-gray-400 mt-4 hover:underline">Back to Dashboard</a>
+    </div>
+</body>
+</html>

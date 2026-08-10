@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Payment Graph</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white">
+    <nav class="bg-gray-800 p-4 flex justify-between items-center">
+        <div class="text-xl font-bold">BITpay</div>
+        <a href="/dashboard" class="text-gray-400 hover:text-white">Dashboard</a>
+    </nav>
+
+    <div class="container mx-auto p-8">
+        <h2 class="text-2xl font-bold text-center mb-6">Total Payments by Users</h2>
+        <canvas id="paymentChart" class="bg-gray-700 p-4 rounded-lg"></canvas>
+    </div>
+
+    <script>
+        var userNames = {{ user_names | tojson }};
+        var amounts = {{ amounts | tojson }};
+
+        var ctx = document.getElementById('paymentChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: userNames,
+                datasets: [{
+                    label: 'Total Payments (₹)',
+                    data: amounts,
+                    backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: { beginAtZero: true }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

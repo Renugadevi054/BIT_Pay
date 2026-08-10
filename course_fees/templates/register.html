@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Student Registration</title>
+    <!-- Add Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+    </style>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #1a1a1a; margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; height: 100vh;">
+    <div style="background-color: #2d2d2d; padding: 30px; border-radius: 8px; box-shadow: 0 4px 6px rgba(204, 61, 61, 0.1); width: 100%; max-width: 800px; display: flex; overflow: hidden;" class="fade-in">
+        <!-- Left Side: Image Block -->
+        <div style="flex: 1; background-image: url('https://cdn.dribbble.com/userupload/22000144/file/original-9e296e01759ac6caab4eee52ddaddfda.gif'); background-size: cover; background-position: center; border-radius: 8px 0 0 8px; margin-right: 10px;">
+        </div>
+
+        <!-- Right Side: Form Block -->
+        <div style="flex: 1;">
+            <h2 style="color: #ffffff; font-size: 34px; margin-bottom: 30px;">
+                <i class="fas fa-user-plus"></i> Student Registration
+            </h2>
+            <form method="POST" enctype="multipart/form-data" style="display: flex; flex-direction: column; gap: 15px;">
+                <!-- Full Name -->
+                <div style="position: relative;">
+                    <i class="fas fa-user" style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%); color: #888888;"></i>
+                    <input type="text" name="name" placeholder="Full Name" required style="padding: 10px 10px 10px 35px; border: 1px solid #444444; border-radius: 4px; font-size: 16px; width: 80%; background-color: #1a1a1a; color: #ffffff;">
+                </div>
+
+                <!-- Department -->
+                <div style="position: relative;">
+                    <i class="fas fa-building" style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%); color: #888888;"></i>
+                    <input type="text" name="department" placeholder="Department" required style="padding: 10px 10px 10px 35px; border: 1px solid #444444; border-radius: 4px; font-size: 16px; width: 80%; background-color: #1a1a1a; color: #ffffff;">
+                </div>
+
+                <!-- Date of Birth -->
+                <div style="position: relative;">
+                    <i class="fas fa-calendar-alt" style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%); color: #888888;"></i>
+                    <input type="date" name="dob" required style="padding: 10px 10px 10px 35px; border: 1px solid #444444; border-radius: 4px; font-size: 16px; width: 80%; background-color: #1a1a1a; color: #ffffff;">
+                </div>
+
+                <!-- Location -->
+                <div style="position: relative;">
+                    <i class="fas fa-map-marker-alt" style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%); color: #888888;"></i>
+                    <input type="text" name="location" placeholder="Location" required style="padding: 10px 10px 10px 35px; border: 1px solid #444444; border-radius: 4px; font-size: 16px; width: 80%; background-color: #1a1a1a; color: #ffffff;">
+                </div>
+
+                <!-- Mobile -->
+                <div style="position: relative;">
+                    <i class="fas fa-phone" style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%); color: #888888;"></i>
+                    <input type="text" name="mobile" placeholder="Mobile" required style="padding: 10px 10px 10px 35px; border: 1px solid #444444; border-radius: 4px; font-size: 16px; width: 80%; background-color: #1a1a1a; color: #ffffff;">
+                </div>
+
+                <!-- Email -->
+                <div style="position: relative;">
+                    <i class="fas fa-envelope" style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%); color: #888888;"></i>
+                    <input type="email" name="email" placeholder="Email" required style="padding: 10px 10px 10px 35px; border: 1px solid #444444; border-radius: 4px; font-size: 16px; width: 80%; background-color: #1a1a1a; color: #ffffff;">
+                </div>
+
+                <!-- Image Upload -->
+                <div style="position: relative;">
+                    <i class="fas fa-image" style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%); color: #888888;"></i>
+                    <input type="file" name="image" required style="padding: 10px 10px 10px 35px; border: 1px solid #444444; border-radius: 4px; font-size: 16px; width: 80%; background-color: #1a1a1a; color: #ffffff;">
+                </div>
+                <div style="position: relative;">
+                    <i class="fas fa-lock" style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%); color: #888888;"></i>
+                    <input type="password" name="password" id="password" placeholder="Password" required style="padding: 10px 10px 10px 35px; border: 1px solid #444444; border-radius: 4px; font-size: 16px; width: 80%; background-color: #1a1a1a; color: #ffffff;">
+                </div>
+
+                <!-- Register Button -->
+                <button type="submit" style="padding: 10px; background-color: #007bff; border: none; border-radius: 4px; color: #ffffff; font-size: 16px; cursor: pointer; transition: background-color 0.3s;" onmouseover="this.style.backgroundColor='#0056b3'" onmouseout="this.style.backgroundColor='#007bff'">
+                    <i class="fas fa-user-plus"></i> Register
+                </button>
+            </form>
+           
+            
+
+            <!-- Login Link -->
+            <p style="text-align: center; margin-top: 25px; color: #888888;">
+                Already registered? <a href="{{ url_for('home') }}" style="color: #007bff; text-decoration: none;">Login</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
